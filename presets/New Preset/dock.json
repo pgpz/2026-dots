@@ -1,0 +1,20 @@
+{
+    "enabled": true,
+    "height": 10,
+    "hoverRegionHeight": 12,
+    "hoverToReveal": true,
+    "iconSize": 20,
+    "ignoredAppRegexes": [
+        "quickshell.*",
+        "xdg-desktop-portal.*"
+    ],
+    "margin": 4,
+    "pinnedOnStartup": false,
+    "position": "bottom",
+    "screenList": [],
+    "showOverviewButton": true,
+    "showPinButton": true,
+    "showRunningIndicators": true,
+    "spacing": 4,
+    "theme": "floating"
+}
