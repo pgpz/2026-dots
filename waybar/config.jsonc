@@ -1,0 +1,133 @@
+{
+    "layer": "top",
+    "position": "top",
+
+    "height": 24,
+    "spacing": 4,
+
+    "margin-top": 0,
+    "margin-left": 0,
+    "margin-right": 0,
+
+    "modules-left": [
+        "custom/pacman",
+        "hyprland/window"
+    ],
+
+    "modules-center": [
+        "mpris"
+    ],
+
+    "modules-right": [
+        "cpu",
+        "memory",
+        "pulseaudio",
+        "clock"
+    ],
+
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "format": "{icon}",
+
+        "format-icons": {
+            "1": "󰲠",
+            "2": "󰲢",
+            "3": "󰲤",
+            "4": "󰲦",
+            "5": "󰲨",
+            "6": "󰲪",
+            "7": "󰲬",
+            "8": "󰲮",
+            "9": "󰲰",
+            "10": "󰿬"
+        },
+
+        "persistent-workspaces": {
+            "*": 1
+        }
+    },
+
+    "mpris": {
+        "format": "󰎈  {title} — {artist}",
+        "format-paused": "󰏤  {title} — {artist}",
+        "format-stopped": "󰓛  no media",
+
+        "max-length": 45,
+
+        "max-field-length": {
+            "title": 30,
+            "artist": 20
+        },
+
+        "tooltip": true,
+        "tooltip-format": "{player}\n{title}\n{artist}\n{album}",
+
+        "on-click": "playerctl play-pause",
+        "on-click-right": "playerctl next",
+        "on-click-middle": "playerctl previous"
+    },
+
+    "cpu": {
+        "format": "󰻠  {usage}%",
+        "interval": 1,
+
+        "tooltip": true,
+        "tooltip-format": "cpu usage: {usage}%\naverage frequency: {avg_frequency} ghz\nload: {load}"
+    },
+
+    "memory": {
+        "format": "󰍛  {percentage}%",
+        "interval": 1,
+
+        "tooltip": true,
+        "tooltip-format": "memory usage: {percentage}%\nused: {used:0.2f} gb\navailable: {avail:0.2f} gb\ntotal: {total:0.2f} gb"
+    },
+
+    "pulseaudio": {
+        "scroll-step": 5,
+
+        "format": "{icon} {volume}%",
+        "format-muted": "󰖁 muted",
+
+        "format-icons": {
+            "headphone": "󰋋 ",
+            "hands-free": "󱡏 ",
+            "headset": "󰋎 ",
+            "phone": "󰏲 ",
+            "portable": "󰦧 ",
+            "car": "󰄋 ",
+            "default": [
+                "󰕿",
+                "󰖀",
+                "󰕾"
+            ]
+        },
+
+        "tooltip": true,
+        "tooltip-format": "volume: {volume}%",
+
+        "on-click": "pavucontrol",
+        "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
+    },
+
+    "clock": {
+        "format": "{:%H:%M}",
+        "format-alt": "{:%A, %B %d, %Y (%R)}",
+
+        "tooltip": true,
+        "tooltip-format": "<tt><small>{calendar}</small></tt>"
+    },
+
+    "custom/pacman": {
+        "exec": "checkupdates 2>/dev/null | wc -l",
+        "interval": 300,
+
+        "format": "󰮯  {}",
+
+        "tooltip": true,
+        "tooltip-format": "{} available updates",
+
+        "on-click": "kitty -e bash -c 'sudo pacman -Syu; read -rp \"press enter to close...\"'"
+    }
+}
